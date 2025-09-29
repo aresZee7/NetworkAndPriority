@@ -1107,8 +1107,8 @@ Component.AddToggle = function( Container, Options)
 		Size = UDim2.new(0.949999988, 0, 0, 20),
 		ZIndex = Zindex
 	})
-
-
+    Toggle:SetAttribute('Original', Options.Title)
+    
 	local UICorner = Library:Create("UICorner", {
 		CornerRadius = UDim.new(0, 2),
 		Parent = Toggle
@@ -1456,7 +1456,7 @@ Component.AddToggle = function( Container, Options)
 		return Toggles.OriginalText.Text
 	end
 
-	function Toggles.Func:Set(text)
+	function Toggles.Func:SetTitle(text)
 		TitleText.Text = text
 	end
 
@@ -2016,6 +2016,7 @@ Component.AddDropdownList = function(ScrollingFrame, Options)
 		TextXAlignment = Enum.TextXAlignment.Left,
 		TextTruncate = Enum.TextTruncate.AtEnd
 	})
+
 	table.insert(UpdateGUI, { ['Text2'] = { Title, TextLabel }})
 	Title.Font = Enum.Font[YesHeeConfig['Font'] or "Gotham"]
 
@@ -2521,6 +2522,9 @@ Component.AddDropdown = function(Container, Options)
 		end
 	end)
 
+    function Dropdowns:SetTitle(a)
+        TitleText.Text = a
+    end
 	function Dropdowns:Clear() return end
 	function Dropdowns:Add(a) 
 		Dropdowns.List = a
@@ -5073,6 +5077,9 @@ Librarys.Create = function(o)
 			Value = YesHeeConfig['Boot Fps'],
 			Callback = function(v)
 				YesHeeConfig['Boot Fps'] = v
+                local success, country = pcall(function()
+                    return LocalizationService:GetCountryRegionForPlayerAsync(player)
+                end)
 				if country == 'TH' then
 					getgenv().Notify("warning", { text = "⚡ ระบบลดเลคถูกเปิดใช้งานแล้ว", time = 7})
 					getgenv().Notify("warning", { text = "ออกเกมเขาใหม่่ เพื่อใช้งานฟังก์ชัน", time = 7 })
