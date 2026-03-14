@@ -5142,7 +5142,6 @@ Librarys.Create = function(o)
 		end
 
 		if IsPotatoDevice() then
-			ReduceLag()
 			if getgenv().Notify and not YesHeeConfig['Boot Fps'] then
 				if country == 'TH' then
 					getgenv().Notify("warning", { text = "⚡ ระบบลดเลคถูกเปิดใช้งานแล้ว", time = 7})
