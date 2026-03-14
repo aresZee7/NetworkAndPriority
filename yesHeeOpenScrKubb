@@ -5102,7 +5102,7 @@ Librarys.Create = function(o)
 
 	Func.ContinueGUI = function(Window, Options)
 		getgenv().LosslessLoading = true
-		--updateFull()
+		updateFull()
 		table.clear(UpdateGUI)
 	end
 
