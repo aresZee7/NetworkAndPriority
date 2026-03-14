@@ -345,7 +345,7 @@ local SoundUI = function(s)
 	ss.SoundId = s
 
 	ss:Play()
-	ss.Stopped:Connect(function()
+	delay(3, function()
 		ss:Destroy()
 	end)
 end
