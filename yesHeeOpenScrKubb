@@ -396,7 +396,7 @@ function Library:MakeDragable(Frame, object)
 			{Position = Position}
 		):Play()
 		
-		if YesHeeConfig and not IsPotatoDevice() then
+		--[[if YesHeeConfig and not IsPotatoDevice() then
 			for i,v in next, object.Keepup.ContentContainer.PageContainer:GetDescendants() do
 				if v.Name == 'ContentScroll' then
 					v.Right.Visible = false
@@ -410,11 +410,11 @@ function Library:MakeDragable(Frame, object)
 					--_G.InToLoader(nil, true)
 				end
 			end
-		end
+		end]]
 		
 		local currentTime = tick()
 		local deltaTime = currentTime - lastInputTime
-		if deltaTime > 0 and not IsPotatoDevice() then
+		if deltaTime > 0 and false then
 			local velocityX = (input.Position.X - lastX) / deltaTime
 			
 			if math.abs(velocityX) > 0 then
