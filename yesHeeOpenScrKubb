@@ -395,44 +395,6 @@ function Library:MakeDragable(Frame, object)
 			TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 			{Position = Position}
 		):Play()
-		
-		--[[if YesHeeConfig and not IsPotatoDevice() then
-			for i,v in next, object.Keepup.ContentContainer.PageContainer:GetDescendants() do
-				if v.Name == 'ContentScroll' then
-					v.Right.Visible = false
-					v.Left.Visible = false
-				end
-			end
-			if tick() - tickDD > .5 then
-				tickDD = tick()
-				if _G.InToLoader and not _G.DDD then
-					_G.DDD = true
-					--_G.InToLoader(nil, true)
-				end
-			end
-		end]]
-		
-		local currentTime = tick()
-		local deltaTime = currentTime - lastInputTime
-		if deltaTime > 0 and false then
-			local velocityX = (input.Position.X - lastX) / deltaTime
-			
-			if math.abs(velocityX) > 0 then
-				local direction = velocityX > 0 and "ขวา" or "ซ้าย"
-				local rotationAmount = math.clamp(velocityX * 0.02, -maxRotation, maxRotation)
-				TweenService:Create(object, TweenInfo.new(0.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {
-					Rotation = _G.LL and -rotationAmount or rotationAmount
-				}):Play()
-			else
-				local rotationAmount = math.clamp(velocityX * 0.02, -maxRotation, maxRotation)
-				TweenService:Create(object, TweenInfo.new(0.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {
-					Rotation = 0
-				}):Play()
-			end
-
-			lastX = input.Position.X
-			lastInputTime = currentTime
-		end
 	end
 
 	Frame.InputBegan:Connect(function(input)
