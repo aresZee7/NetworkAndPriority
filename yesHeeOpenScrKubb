@@ -129,13 +129,15 @@ local Stats = game:GetService("Stats")
 local RunService = game:GetService("RunService")
 
 local function IsPotatoDevice()
+	--[[
 	local fps = 1 / RunService.RenderStepped:Wait()
 	local ping = Stats.Network.ServerStatsItem["Data Ping"]:GetValue()
 
 	if fps < 30 or ping > 250 then
 		return true
 	end
-	return false or YesHeeConfig['Boot Fps']
+	return false or YesHeeConfig['Boot Fps']]
+	return false
 end
 
 
