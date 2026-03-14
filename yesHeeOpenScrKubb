@@ -3838,7 +3838,7 @@ Librarys.Create = function(o)
 				Position = UDim2.new(0.5, 0, 0.5, 0),
 				Size = Gui.Full and UDim2.new(1, 0, 1, 0) or UDim2.new(0, _G.SaveGUI.newSizeX, 0, _G.SaveGUI.newSizeY)
 			}):Play()
-			updateFull()
+			--updateFull()
 		end
 	end)
 	
@@ -4979,7 +4979,7 @@ Librarys.Create = function(o)
 			startPos.Y.Scale, startPos.Y.Offset + delta.Y / 2
 		)
 		
-	 	updateFull()
+	 	--updateFull()
 		_G.SaveGUI.newSizeX = newSizeX
 		_G.SaveGUI.newSizeY = newSizeY
 
@@ -5031,7 +5031,7 @@ Librarys.Create = function(o)
 			Value = YesHeeConfig['Font'] or "Gotham",
 			Callback = function(v)
 				YesHeeConfig['Font'] = v
-				updateFull()
+				--updateFull()
 				SaveSettings()
 			end,
 		})
@@ -5122,7 +5122,8 @@ Librarys.Create = function(o)
 
 	Func.ContinueGUI = function(Window, Options)
 		getgenv().LosslessLoading = true
-		updateFull()
+		--updateFull()
+		table.clear(UpdateGUI)
 	end
 
 	if not IsPotatoDevice()  then
