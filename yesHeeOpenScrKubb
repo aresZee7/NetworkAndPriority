@@ -376,9 +376,6 @@ function Library:MakeDragable(Frame, object)
 	local maxRotation = 15
 
 	local function updateInput(input)
-		if _G.updateFull then
-			_G.updateFull()
-		end
 		local Delta = input.Position - dragStart
 		local Position = UDim2.new(
 			startPos.X.Scale,
@@ -432,23 +429,6 @@ function Library:MakeDragable(Frame, object)
 					TweenService:Create(object, TweenInfo.new(0.2, Enum.EasingStyle.Circular, Enum.EasingDirection.Out), {
 						Rotation = 0
 					}):Play()
-					if _G.OutToLoader and _G.DDD then
-						_G.DDD = false
-						--_G.OutToLoader(nil, true)
-						for i,v in next, binDD do
-							task.cancel(v)
-						end
-					end
-					task.wait(.2)
-					if YesHeeConfig and object:FindFirstChild('Keepup') then
-						for i,v in next, object.Keepup.ContentContainer.PageContainer:GetDescendants() do
-							if v.Name == 'ContentScroll' then
-								v.Right.Visible = true
-								v.Left.Visible = true
-							end
-						end
-					end
-					
 				end
 			end)
 		end
